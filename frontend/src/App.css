@@ -1,0 +1,348 @@
+/* Team Directory Application - Main Styles */
+
+/* CSS Custom Properties */
+:root {
+  --primary-color: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary-color: #a855f7;
+  --background-dark: #0f172a;
+  --background-darker: #020617;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* App Container */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.app-header {
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+}
+
+.logo-icon svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.app-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Main Content */
+.app-main {
+  flex: 1;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Results Info */
+.results-info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+.results-info strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Employee Grid */
+.employee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* State Container (Loading, Error, Empty) */
+.state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(99, 102, 241, 0.2);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.state-message {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Error State */
+.error-state {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+}
+
+.error-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.error-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--error-color);
+}
+
+.error-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.error-message {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+.retry-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.retry-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.retry-button:active {
+  transform: translateY(0);
+}
+
+/* Empty State */
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.empty-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--text-secondary);
+}
+
+.empty-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.empty-message {
+  color: var(--text-secondary);
+  max-width: 500px;
+}
+
+/* Footer */
+.app-footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.app-footer p {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.heart {
+  color: var(--error-color);
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  10%,
+  30% {
+    transform: scale(1.1);
+  }
+
+  20%,
+  40% {
+    transform: scale(1);
+  }
+}
+
+.tech-stack {
+  font-weight: 500;
+  color: var(--primary-color) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .app-title {
+    font-size: 2rem;
+  }
+
+  .logo-section {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .employee-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .state-container {
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 1.75rem;
+  }
+
+  .app-subtitle {
+    font-size: 0.875rem;
+  }
+}
